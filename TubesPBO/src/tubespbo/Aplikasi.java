@@ -37,7 +37,7 @@ public class Aplikasi {
 
     public Mahasiswa getMahasiswa(long nim) throws FileNotFoundException, IOException, ClassNotFoundException {
         Mahasiswa satu = null;
-        FileInputStream fis = new FileInputStream("Data_Mahasiswa.dat");
+        FileInputStream fis = new FileInputStream("data_mahasiswa.dat");
         ObjectInputStream ois = new ObjectInputStream(fis);
         ArrayList<Mahasiswa> tempmhs = (ArrayList<Mahasiswa>) ois.readObject();
         while (ois.readObject() != null) {
@@ -51,7 +51,7 @@ public class Aplikasi {
     }
 
     public void deleteMahasiswa(long nim) throws FileNotFoundException, IOException, ClassNotFoundException {
-        FileInputStream fis = new FileInputStream("Data_Mahasiswa.dat");
+        FileInputStream fis = new FileInputStream("data_mahasiswa.dat");
         ObjectInputStream ois = new ObjectInputStream(fis);
         ArrayList<Mahasiswa> tempmhs = (ArrayList<Mahasiswa>) ois.readObject();
         File data = new File("Data Mahasiswa.dat");
