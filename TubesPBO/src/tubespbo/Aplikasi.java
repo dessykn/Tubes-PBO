@@ -24,9 +24,7 @@ public class Aplikasi {
 
     private ArrayList<Dosen> daftarDosen = new ArrayList<Dosen>();
     private ArrayList<Mahasiswa> daftarMahasiswa = new ArrayList<Mahasiswa>();
-    //private ArrayList<KelompokTA> daftarKelompok = new ArrayList<KelompokTA>();
-    //private ArrayList<TugasAkhir> daftarTugasAkhir = new ArrayList<TugasAkhir>();
-
+    
     public void addMahasiswa(Mahasiswa m) {
         daftarMahasiswa.add(m);
     }
@@ -101,7 +99,7 @@ public class Aplikasi {
         }
     }
 
-    public KelompokTA getKelompok(String nama, long nip) throws FileNotFoundException, IOException, ClassNotFoundException {
+    public KelompokTA getKelompokByIndeks(String nama, long nip) throws FileNotFoundException, IOException, ClassNotFoundException {
         KelompokTA tiga = null;
         for (int i = 0; i < daftarDosen.size(); i++) {
             if (daftarDosen.get(i).getKelompokByIndeks(i).getNamaKelompok() == nama) {
@@ -187,7 +185,6 @@ public class Aplikasi {
 
     public void menuKelompokCreate(String nama, String topik, int num) throws FileNotFoundException, IOException {
         KelompokTA kl = new KelompokTA(nama, topik, num);
-        //setKelompok(kl);
         FileOutputStream fos = new FileOutputStream("Data Kelompok.dat");
         ObjectOutputStream oos = new ObjectOutputStream(fos);
         oos.writeObject(kl);
@@ -217,9 +214,10 @@ public class Aplikasi {
         System.out.println("Data Telah Dihapus");
     }
 //
-//    public void daftarMhsKelompok(long nim, String nama) throws IOException, FileNotFoundException, ClassNotFoundException {
-//        getKelompok(nama).addAnggota(getMahasiswa(nim));
-//    }
+    public void daftarMhsKelompok(long nim, String nama) throws IOException, FileNotFoundException, ClassNotFoundException {
+        long nip = 0;
+        //getDaftarDosen(nip).addKelompokTA(
+    }
 
 //    public void daftarKelompokDosen(String nama, long nip) throws IOException, FileNotFoundException, ClassNotFoundException {
 //        getDaftarDosen(nip).addKelompokTA(getKelompok(nama));
@@ -322,11 +320,13 @@ public class Aplikasi {
         do {
             System.out.println("Main Menu Sisfo TA");
             System.out.println();
+            System.out.println("Menu Input Data");
             System.out.println("1. Daftar Data Mahasiswa");
             System.out.println("2. Daftar Data Dosen");
             System.out.println("3. Daftar Data Kelompok TA");
             System.out.println("4. Daftar Data Tugas Akhir");
             System.out.println();
+            System.out.println("Menu Delete Data");
             System.out.println("5. Delete Data Mahasiswa");
             System.out.println("6. Delete Data Dosen");
             System.out.println("7. Delete Data Kelompok TA");
