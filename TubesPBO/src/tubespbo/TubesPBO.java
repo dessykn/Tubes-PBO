@@ -21,8 +21,8 @@ public class TubesPBO {
      * @throws java.lang.ClassNotFoundException
      */
     public static void main(String[] args) throws IOException, FileNotFoundException, ClassNotFoundException {
-        Aplikasi apl = new Aplikasi();
-        apl.mainMenu();
+        Aplikasi a = new Aplikasi();
+        a.mainMenu();
     }
     
 }
